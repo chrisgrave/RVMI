@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ #   {% load static %}
+  #  <script src="{% static 'JavaScript/sorttable.js' %}" type="text/javascript"></script>
+    <meta charset="UTF-8">
+
+    <style>
+	h2 {
+			font-family: "Courier New", Courier, monospace;
+	}
+	table {
+			font-size: 12px;
+			font-family: "Courier New", Courier, monospace;
+	}
+	tr:nth-child(even){background-color: #f2f2f2} tr:hover{background-color:#D3D3D3}
+	</style>
+    <title>VM-RVMI Owners List</title>
+</head>
+<body>
+<h2>VM-RVMI Owners List</h2>
+<div style="overflow-x:auto;">
+    <table class="sortable" style="width:1900px">
+        <tr bgcolor="#D0A9F5">
+	        <th>Name</th>
+	        <th>Infra</th>
+	        <th>Function</th>
+	        <th>Business Owner</th>
+	        <th>Email</th>
+	        <th>Faculty</th>
+	        <th>Contribution</th>
+	        <th>Nominated Admins</th>
+	        <th>Isilon</th>
+	        <th>Sensitive</th>
+	        <th>Type</th>
+	        <th>OS</th>
+	        <th>CPUcores</th>
+	        <th>Memory</th>
+	        <th>HDD</th>
+	        <th>DNS</th>
+	        <th class="sorttable_ipaddr">IP Address</th>
+	        <th>Sysadmin#1</th>
+	        <th>Sysadmin#2</th>
+	        <th>Reference</th>
+	        <th>Notes</th>
+            </tr>
+        {% for VM in VM_RVMI %}
+        <tr>
+            <td>{{ VM.Name }}</td>
+            <td>{{ VM.Infra }}</td>
+            <td>{{ VM.Function }}</td>
+            <td>{{ VM.Business_Owner }}</td>
+            <td>{{ VM.Email }}</td>
+            <td>{{ VM.Faculty }}</td>
+            <td>{{ VM.Contribution }}</td>
+            <td>{{ VM.Nominated_Admins }}</td>
+            <td>{{ VM.Isilon }}</td>
+            <td>{{ VM.Sensitive }}</td>
+            <td>{{ VM.Type }}</td>
+            <td>{{ VM.OS }}</td>
+            <td>{{ VM.CPUcores }}</td>
+            <td>{{ VM.Memory }}</td>
+            <td>{{ VM.HDD }}</td>
+            <td>{{ VM.DNS }}</td>
+            <td>{{ VM.IP_Address }}</td>
+            <td>{{ VM.Sysadmin1 }}</td>
+            <td>{{ VM.Sysadmin2 }}</td>
+            <td>{{ VM.Reference }}</td>
+		    <td>{{ VM.Notes }}</td>
+        </tr>
+        {% endfor %}
+  </table>
+  </div>
+</body>
+</html>

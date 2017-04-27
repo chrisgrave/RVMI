@@ -1,0 +1,20 @@
+from django.core.management.base import BaseCommand
+
+import os
+
+import django
+
+
+
+class Command(BaseCommand):
+    def handle(self, *args, **options):
+        from django_auth_ldap.backend import LDAPBackend
+        ldap_backend = LDAPBackend()
+        ldap_backend.populate_user('mzysscg3')
+
+
+
+if __name__ == '__main__':
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myproject.settings')
+
+    django.setup()
