@@ -12,22 +12,33 @@ SENSITIVEDATA = (
 
 INFRASTRUCTURE = (
     ('RVMI', 'Research VM Infra'),
-    ('BS', 'Business VM Infra')
+    ('BS', 'Business VM Infra'),
+)
+
+FACULTIES = (
+    ('RIT', 'Research IT'),
+    ('HUM', 'Humanities'),
+    ('FSE', 'Science & Engineering'),
+    ('EPS', 'Engineering & Physical Sciences'),
+    ('BMH', 'Biology, Medicine, Health'),
+    ('MHS', 'Medical & Human Sciences'),
+    ('PSS', 'Professional Support Services'),
+    ('LIB', 'Library'),
 )
 
 # Create your models here.
 class Virtual_Machine(models.Model):
     Name = models.CharField(blank=True,null=True, max_length=200)
-    Infra = models.CharField(max_length=20, choices=INFRASTRUCTURE)
-    Deployment = models.CharField(max_length=20, choices=DEPLOYMENT)
+    Infra = models.CharField(max_length=50, choices=INFRASTRUCTURE)
+    Deployment = models.CharField(max_length=50, choices=DEPLOYMENT)
     Function = models.CharField(blank=True,null=True, max_length=200)
     Business_Owner = models.CharField(blank=True,null=True, max_length=200)
     Email = models.EmailField(blank=True,null=True, max_length=200)
-    Faculty = models.CharField(blank=True,null=True, max_length=200)
+    Faculty = models.CharField(max_length=50, choices=FACULTIES)
     Contribution = models.CharField(blank=True,null=True, max_length=200)
     Nominated_Admins = models.CharField(blank=True,null=True, max_length=200)
     Isilon = models.CharField(blank=True,null=True, max_length=200)
-    Sensitive_Data = models.CharField(max_length=20, choices=SENSITIVEDATA)
+    Sensitive_Data = models.CharField(max_length=50, choices=SENSITIVEDATA)
     Type = models.CharField(blank=True,null=True, max_length=200)
     OS = models.CharField(blank=True,null=True, max_length=200)
     CPUcores = models.CharField(blank=True,null=True, max_length=200)
